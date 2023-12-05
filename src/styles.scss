@@ -1,7 +1,148 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+$dark-primary-text: rgba(black, 0.87);
+$light-primary-text: white;
+$custom-primary-map: (
+  50: #28939c,
+  100: #ffcdd2,
+  200: #ef9a9a,
+  300: #e57373,
+  400: #ef5350,
+  500: #f44336,
+  600: #e53935,
+  700: #d32f2f,
+  800: #c62828,
+  900: #b71c1c,
+  A100: #ff8a80,
+  A200: #ff5252,
+  A400: #ff1744,
+  A700: #d50000,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $light-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text,
+  ),
+);
+
+$custom-accent-map: (
+  50: #002a3a,
+  100: #f8bbd0,
+  200: #f48fb1,
+  300: #f06292,
+  400: #ec407a,
+  500: #e91e63,
+  600: #d81b60,
+  700: #c2185b,
+  800: #ad1457,
+  900: #880e4f,
+  A100: #ff80ab,
+  A200: #ff4081,
+  A400: #f50057,
+  A700: #c51162,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $light-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text,
+  ),
+);
+
+$custom-warm-map: (
+  50: #dbe442,
+  100: #e1bee7,
+  200: #ce93d8,
+  300: #ba68c8,
+  400: #ab47bc,
+  500: #9c27b0,
+  600: #8e24aa,
+  700: #7b1fa2,
+  800: #6a1b9a,
+  900: #4a148c,
+  A100: #ea80fc,
+  A200: #e040fb,
+  A400: #d500f9,
+  A700: #aa00ff,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $light-primary-text,
+    400: $light-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $light-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text,
+  ),
+);
+$light-theme: mat.define-light-theme(
+  (
+    color: (
+      // primary: mat.define-palette(mat.$cyan-palette, 700),
+      // accent: mat.define-palette(mat.$teal-palette, A400),
+      // warn: mat.define-palette(mat.$lime-palette, A200),
+      primary: mat.define-palette($custom-primary-map, 50),
+      accent: mat.define-palette($custom-accent-map, 50),
+      warn: mat.define-palette($custom-warm-map, 50),
+    ),
+  )
+);
+$dark-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: mat.define-palette(mat.$teal-palette, 700),
+      accent: mat.define-palette(mat.$red-palette, 200),
+      warn: mat.define-palette(mat.$orange-palette, 100),
+    ),
+    // Only include `typography` and `density` in the default dark theme.
+    typography: mat.define-typography-config(),
+    density: 0,
+  )
+);
+
+@include mat.all-component-themes($light-theme);
+
+.theme-dark {
+  @include mat.all-component-colors($dark-theme);
+}
+
+/* You can add global styles to this file, and also import other style files */
 html {
   width: 100%;
   height: 100%;
-  padding: 0px;
+  padding: 0;
   box-sizing: border-box;
   font-synthesis: none;
   scroll-behavior: smooth;
@@ -13,11 +154,11 @@ html {
 
 body {
   box-sizing: border-box;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   min-height: 100%;
   margin: 0px;
-  overflow: hidden scroll;
+  overflow: auto;
   font-family: Inter, 'Open Sans', 'Gill Sans MT', 'Gill Sans', Corbel, Arial,
     sans-serif;
   color: rgb(0, 0, 0);
@@ -49,8 +190,4 @@ body {
 
 * {
   scrollbar-width: thin;
-}
-
-h1 {
-  margin: 0;
 }
