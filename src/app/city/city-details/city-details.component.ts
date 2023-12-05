@@ -38,6 +38,7 @@ export class CityDetailsComponent implements OnInit {
       this.cityName = params.get('name') || ''
     })
 
+    //get current city to display city details
     if (this.cityName) {
       this.cityService.getCityByName(this.cityName).subscribe((city) => {
         this.city = city
@@ -46,6 +47,7 @@ export class CityDetailsComponent implements OnInit {
     this.onTabSelectionChange(0)
   }
 
+  //show picture and map for current landmark
   onTabSelectionChange(tabIndex: number): void {
     if (this.city && this.city.landmarks[tabIndex]) {
       this.selectedLandmark = this.city.landmarks[tabIndex]
