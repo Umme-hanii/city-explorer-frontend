@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, SecurityContext } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser'
 
@@ -41,7 +41,9 @@ export class CityDetailsComponent implements OnInit {
     //get current city to display city details
     if (this.cityName) {
       this.cityService.getCityByName(this.cityName).subscribe((city) => {
-        this.city = city
+        if (city) {
+          this.city = city
+        }
       })
     }
     this.onTabSelectionChange(0)
@@ -61,6 +63,16 @@ export class CityDetailsComponent implements OnInit {
       const destinationParam = `${landmark}`
       const queryParams = `origin=${originParam}&destination=${destinationParam}&key=${environment.MAP_API_KEY}`
       const fullUrl = `${environment.MAP_API_URL}?${queryParams}`
+      console.log(
+        'return is',
+        this.sanitizer.bypassSecurityTrustResourceUrl(fullUrl)
+      )
+
+      const url = this.sanitizer.sanitize(SecurityContext.URL, fullUrl)
+      if (url) {
+        //sanitize first
+        return this.sanitizer.bypassSecurityTrustResourceUrl(url)
+      }
 
       return this.sanitizer.bypassSecurityTrustResourceUrl(fullUrl)
     } else {

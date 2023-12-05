@@ -1,14 +1,15 @@
 import { TestBed } from '@angular/core/testing'
+import { HttpRequest } from '@angular/common/http'
 import {
   HttpClientTestingModule,
   HttpTestingController,
 } from '@angular/common/http/testing'
-import { CityService } from './city.service'
-import { environment } from 'src/environments/environment'
-import { CityInterface } from '../types/city.interface'
-import { HttpRequest } from '@angular/common/http'
 
-fdescribe('CityService', () => {
+import { CityInterface } from '../types/city.interface'
+import { CityService } from './city.service'
+import { environment } from '../../../environments/environment'
+
+describe('CityService', () => {
   let service: CityService
   let httpMock: HttpTestingController
 
@@ -22,7 +23,6 @@ fdescribe('CityService', () => {
   })
 
   afterEach(() => {
-    // Ensure that there are no outstanding requests after each test
     httpMock.verify()
   })
 

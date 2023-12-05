@@ -3,7 +3,7 @@ import { Directive, ElementRef, Input, OnInit, Renderer2 } from '@angular/core'
   selector: '[backgroundImage]',
 })
 export class backgroundImageDirective implements OnInit {
-  imageUrl: string = ''
+  imageUrl: string = '../../../../assets/images/default.jpg'
   @Input() imageName: string = 'banner-img'
 
   constructor(private elementRef: ElementRef, private renderer: Renderer2) {}
@@ -15,11 +15,18 @@ export class backgroundImageDirective implements OnInit {
       }
       this.imageUrl =
         '../../../../assets/images/' + this.imageName.toLowerCase() + '.jpg'
+
+      this.renderer.setStyle(
+        this.elementRef.nativeElement,
+        'backgroundImage',
+        `url(${this.imageUrl})`
+      )
+    } else {
+      this.renderer.setStyle(
+        this.elementRef.nativeElement,
+        'backgroundImage',
+        `url(${this.imageUrl})`
+      )
     }
-    this.renderer.setStyle(
-      this.elementRef.nativeElement,
-      'backgroundImage',
-      `url(${this.imageUrl})`
-    )
   }
 }
