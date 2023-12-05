@@ -1,0 +1,44 @@
+.banner-card {
+  color: #002a3a;
+  text-align: center;
+  height: 25rem;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.8),
+      60%,
+      rgba(255, 255, 255, 0.2)
+    ),
+    url('../../../assets//images//details.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 60%;
+  border-radius: 0px;
+
+  .banner-title {
+    margin: 0 auto;
+    max-width: 1200px;
+    display: flex;
+    font-size: 20px;
+    justify-content: center;
+    font-weight: bold;
+    margin-top: 3rem;
+    flex-direction: column;
+
+    .title {
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      letter-spacing: 0.1089rem;
+      line-height: 1.2;
+      margin-bottom: 15px;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: white;
+      text-transform: capitalize;
+      font-weight: 500;
+      line-height: 1.57;
+      letter-spacing: 0.1rem;
+    }
+  }
+}

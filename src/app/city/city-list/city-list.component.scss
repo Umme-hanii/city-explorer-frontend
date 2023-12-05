@@ -1,0 +1,106 @@
+.city-list-view {
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 3rem;
+
+  .header {
+    background-color: rgba(41, 144, 153, 0.6);
+    border-radius: 5px;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: 600;
+    text-transform: capitalize;
+    gap: 4%;
+
+    // give heading more width so that other buttons display to the right
+    .heading {
+      flex-basis: 50%;
+      font-weight: 900;
+      margin: 0;
+    }
+
+    .options {
+      display: flex;
+      align-items: center;
+      gap: 10%;
+
+      .search {
+        .input-container {
+          position: relative;
+          .search-field {
+            width: 20rem;
+            padding: 7px;
+            border: none;
+            border-radius: 3px;
+          }
+          button {
+            position: absolute;
+            right: 8px;
+            border: none;
+            background-color: transparent;
+            color: #299099b3;
+            cursor: pointer;
+          }
+          // Reduce search input width on tablet screens and mobile screens
+          @media only screen and (max-width: 800px) {
+            .search-field {
+              width: 15rem;
+            }
+          }
+          @media only screen and (max-width: 550px) {
+            .search-field {
+              width: 10rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .city-list {
+    margin-top: 2rem;
+    ul {
+      display: flex;
+      flex-flow: row wrap;
+      gap: 2%;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        flex-basis: 23.5%;
+        margin-bottom: 2rem;
+
+        mat-card-header {
+          color: #002a3a;
+          font-weight: bold;
+        }
+
+        .city-img {
+          height: 20rem;
+          margin: 1rem;
+          background-repeat: no-repeat;
+        }
+      }
+      li:hover {
+        cursor: pointer;
+      }
+      @media only screen and (max-width: 800px) {
+        li {
+          flex-basis: 32%;
+        }
+      }
+      @media only screen and (max-width: 550px) {
+        li {
+          flex-basis: 50%;
+          margin: 0 auto;
+          margin-bottom: 2rem;
+          min-width: 300px;
+        }
+      }
+    }
+  }
+}

@@ -1,1 +1,54 @@
-<p>city-list works!</p>
+<app-city-banner></app-city-banner>
+<main class="city-list-view">
+  <section class="header" role="search" aria-controls="heading, search city">
+    <h2 class="heading">Choose a city</h2>
+    <!-- 'options' is the container for search and sort -->
+    <section class="options">
+      <!-- search -->
+      <aside class="search">
+        <section class="input-container">
+          <input
+            matInput
+            [formControl]="searchValue"
+            placeholder="Search..."
+            class="search-field"
+            aria-label="Search input"
+            tabindex="0"
+          />
+          <button
+            *ngIf="searchValue.value"
+            aria-label="Clear"
+            (click)="resetSearch()"
+            aria-placeholder="clear search input"
+          >
+            <mat-icon>clear</mat-icon>
+          </button>
+        </section>
+      </aside>
+      <!-- sort -->
+      <aside class="sort">Sort</aside>
+    </section>
+  </section>
+  <section class="city-list" role="cities list">
+    <ul role="city list">
+      <li
+        *ngFor="let city of searchResult$ | async"
+        (click)="goTo(city)"
+        (keydown.enter)="goTo(city)"
+        role="listitem"
+        tabindex="0"
+      >
+        <mat-card role="city">
+          <mat-card-content>
+            <mat-card-header>{{ city.name }}</mat-card-header>
+            <figure
+              class="city-img"
+              backgroundImage
+              [imageName]="city.name"
+            ></figure>
+          </mat-card-content>
+        </mat-card>
+      </li>
+    </ul>
+  </section>
+</main>

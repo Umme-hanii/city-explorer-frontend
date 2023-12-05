@@ -1,1 +1,47 @@
-<p>city-details works!</p>
+<app-city-banner [city]="city"></app-city-banner>
+<section class="container" aria-label="city details page">
+  <mat-card>
+    <mat-card-title class="title" aria-label="iconic landmarks"
+      >Discover iconic landmarks that define the cityscape</mat-card-title
+    >
+  </mat-card>
+  <mat-tab-group
+    *ngIf="city"
+    mat-stretch-tabs
+    class="landmark-group"
+    aria-details="landmarks tabs"
+  >
+    <mat-tab
+      *ngFor="let landmark of city.landmarks"
+      label="{{ landmark }}"
+      class="landmark-tab"
+    >
+      <section class="landmark">
+        <mat-card class="item" aria-label="how to reach">
+          <mat-card-header>How to reach ? </mat-card-header>
+          <mat-card-content>
+            <figure
+              class="city-img"
+              backgroundImage
+              [imageName]="landmark"
+            ></figure>
+          </mat-card-content>
+        </mat-card>
+        <mat-card class="item item2">
+          <mat-card-content class="map-frame">
+            <iframe
+              class=""
+              [src]="getMapUrl(landmark)"
+              loading="lazy"
+              zoom="21"
+              width="650"
+              height="400"
+              allowfullscreen
+            >
+            </iframe>
+          </mat-card-content>
+        </mat-card>
+      </section>
+    </mat-tab>
+  </mat-tab-group>
+</section>

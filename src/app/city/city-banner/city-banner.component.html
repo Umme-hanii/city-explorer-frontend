@@ -1,1 +1,32 @@
-<p>city-banner works!</p>
+<mat-card class="banner-card" role="display banner" *ngIf="!city">
+  <mat-card-header class="banner-title">
+    <mat-card-title class="title" aria-label="app title">
+      Explore your dream city
+    </mat-card-title>
+    <mat-card-subtitle class="subtitle" aria-label="caption"
+      >Save up to 50% with city explore</mat-card-subtitle
+    >
+  </mat-card-header>
+</mat-card>
+<mat-card class="banner-card" role="display banner" *ngIf="city">
+  <mat-card-header class="banner-title">
+    <mat-card-title class="title" aria-label="app title">
+      Welcome to the vibrant city of {{ city.name }} located in
+      {{ city.continent }}
+    </mat-card-title>
+    <mat-card-content class="subtitle" aria-label="caption" color="accent">
+      <p>
+        With a population of {{ city.population }}, {{ city.name }} is a
+        bustling metropolis
+      </p>
+      <p>
+        Established in the year {{ city.founded }}, {{ city.name }} has a rich
+        history
+      </p>
+      <p>
+        Situated in {{ city.country }}, {{ city.name }} is a key cultural and
+        economic hub
+      </p>
+    </mat-card-content>
+  </mat-card-header>
+</mat-card>
