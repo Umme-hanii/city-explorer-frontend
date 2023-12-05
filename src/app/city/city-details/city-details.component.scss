@@ -7,8 +7,12 @@
     box-shadow: none;
   }
   .title {
-    color: #28939c;
+    border-radius: 2px;
+    background-color: #28939c;
+    color: white;
     text-align: center;
+    padding: 1rem;
+    font-size: 20px;
   }
 
   .landmark {
