@@ -1,0 +1,26 @@
+.app-toolbar {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  color: white;
+  font-weight: bold;
+
+  .logo-container {
+    display: flex;
+    letter-spacing: 0.4rem;
+    align-items: center;
+  }
+
+  .menu-items {
+    background-color: inherit;
+    box-shadow: none;
+
+    .menu-btn {
+      background-color: inherit;
+      color: white;
+      border: 0;
+    }
+  }
+}
