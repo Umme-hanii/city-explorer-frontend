@@ -15,9 +15,15 @@
     font-size: 20px;
   }
 
+  // display landmark picture and map using flex
   .landmark {
     display: flex;
     gap: 4%;
+    justify-content: center;
+
+    .img-element {
+      padding-left: 5rem;
+    }
 
     .item {
       flex-basis: 48%;
@@ -26,9 +32,25 @@
       font-size: large;
 
       .city-img {
+        width: 20rem;
         height: 20rem;
         margin: 1rem;
         background-repeat: no-repeat;
+      }
+    }
+
+    .map {
+      width: 20rem;
+      height: 22rem;
+    }
+  }
+
+  @media (max-width: 800px) {
+    .landmark {
+      flex-direction: column;
+
+      .map-element {
+        padding-left: 5rem;
       }
     }
   }

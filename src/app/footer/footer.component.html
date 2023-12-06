@@ -1,9 +1,9 @@
-<main class="footer-container">
+<main class="footer-container" role="footer element">
   <mat-card class="footer-card">
     <mat-card-content class="footer-content">
-      <section class="company">
+      <section class="company" role="company details">
         <h4>Company</h4>
-        <ul>
+        <ul aria-details="company links">
           <li>Home</li>
           <li>About Us</li>
           <li>Blog</li>
@@ -12,7 +12,7 @@
       </section>
       <section class="support">
         <h4>Support</h4>
-        <ul>
+        <ul aria-details="support links">
           <li>Help</li>
           <li>FAQs</li>
           <li>Contact Us</li>
@@ -20,7 +20,7 @@
       </section>
       <section class="follow">
         <h4>Follow us</h4>
-        <ul>
+        <ul aria-details="social links">
           <li>
             <mat-icon fontIcon="facebook"></mat-icon>
             facebook
@@ -29,14 +29,6 @@
             <mat-icon fontIcon="add_a_photo"></mat-icon>
             Instagram
           </li>
-          <!-- <li>
-            <mat-icon fontIcon="camera"></mat-icon>
-            facebook
-          </li>
-          <li>
-            <mat-icon fontIcon="facebook"></mat-icon>
-            facebook
-          </li> -->
         </ul>
       </section>
     </mat-card-content>

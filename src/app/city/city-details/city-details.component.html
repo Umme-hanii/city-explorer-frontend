@@ -11,14 +11,20 @@
     mat-stretch-tabs
     class="landmark-group"
     aria-details="landmarks tabs"
+    tabindex="0"
   >
     <mat-tab
       *ngFor="let landmark of city.landmarks"
       label="{{ landmark }}"
       class="landmark-tab"
+      tabindex="0"
     >
       <section class="landmark">
-        <mat-card class="item" aria-label="how to reach">
+        <mat-card
+          class="item img-element"
+          aria-label="how to reach"
+          tabindex="0"
+        >
           <mat-card-header>How to reach ? </mat-card-header>
           <mat-card-content>
             <figure
@@ -28,15 +34,13 @@
             ></figure>
           </mat-card-content>
         </mat-card>
-        <mat-card class="item item2">
+        <mat-card class="item map-element" tabindex="0">
           <mat-card-content class="map-frame">
             <iframe
-              class=""
+              class="map"
               [src]="getMapUrl(landmark)"
               loading="lazy"
               zoom="21"
-              width="650"
-              height="400"
               allowfullscreen
             >
             </iframe>
