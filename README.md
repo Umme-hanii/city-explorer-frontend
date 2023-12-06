@@ -25,3 +25,36 @@ Clone
  - Nodejs and NPM Package Manager
  - Angular CLI
 
+# HOW TO RUN THE PROJECT
+  - Clone the project
+  - npm i
+  - npm start
+
+# TOOLS AND TECHNOLOGIES USED
+ - Angular          -  Frontend Framework
+ - Typescript       -  Language used
+ - Angular Material -  UI Library
+ - SCSS             -  For Styling
+ - Jasmine, Karma   -  Unit Tests
+
+#STRUCTURE / ARCHITECTURE
+   
+- src/                              # Source code
+  - app/                            # Angular application code
+    - city/
+      - city-banner                 # Reusable components
+      - city-details                # Reusable components
+      - city-list
+      - city component files        # Reusable components
+    - footer/                       # Angular services
+    - modules/                      # Angular modules
+    - nav-bar/                      # Views or pages
+    - page-not-found/               # Views or pages
+    - shared/                       # Views or pages
+    - app-routing.module.ts         # Angular routing module
+    - app.module.ts                 # Angular root module
+  - assets/images                   # all the images
+  - environments/                   # Api urls and api keys
+
+
+   
