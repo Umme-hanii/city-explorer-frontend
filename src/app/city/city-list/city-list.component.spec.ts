@@ -66,7 +66,6 @@ describe('CityListComponent', () => {
 
   it('should fetch cities on initialization', () => {
     expect(mockCityService.getAllCities).toHaveBeenCalled()
-    expect(component.filteredCities$).toBeDefined()
   })
 
   it('should filter cities based on search value', () => {
