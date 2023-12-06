@@ -9,10 +9,11 @@ import { AppRoutingModule } from './app-routing.module'
 import { CityService } from './shared/services/city.service'
 import { MaterialDesignModule } from './modules/material-design.module'
 import { NavBarComponent } from './nav-bar/nav-bar.component'
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component'
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { FooterComponent } from './footer/footer.component'
 
 @NgModule({
-  declarations: [AppComponent, NavBarComponent, PageNotFoundComponent],
+  declarations: [AppComponent, NavBarComponent, PageNotFoundComponent, FooterComponent],
   imports: [
     AppRoutingModule,
     BrowserAnimationsModule,
