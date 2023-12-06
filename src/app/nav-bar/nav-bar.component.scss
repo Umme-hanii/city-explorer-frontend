@@ -11,6 +11,11 @@
     display: flex;
     letter-spacing: 0.4rem;
     align-items: center;
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
   }
 
   .menu-items {

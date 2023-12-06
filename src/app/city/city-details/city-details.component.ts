@@ -12,7 +12,7 @@ import { CityService } from '../../shared/services/city.service'
   styleUrls: ['./city-details.component.scss'],
 })
 export class CityDetailsComponent implements OnInit {
-  cityName: string = ''
+  cityName = ''
   public mapUrl: SafeResourceUrl = ''
   city: CityInterface = {
     name: '',
@@ -25,7 +25,7 @@ export class CityDetailsComponent implements OnInit {
     population: 0,
     founded: 0,
   }
-  selectedLandmark: string = ''
+  selectedLandmark = ''
 
   constructor(
     private sanitizer: DomSanitizer,

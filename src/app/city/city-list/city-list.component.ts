@@ -15,26 +15,21 @@ import { CityService } from '../../shared/services/city.service'
 export class CityListComponent {
   searchValue = new FormControl('')
   searchValue$ = this.searchValue.valueChanges.pipe(startWith(''))
-  filteredCities$: Observable<Array<CityInterface>>
-  searchResult$: Observable<Array<CityInterface>>
 
-  constructor(private cityService: CityService, private router: Router) {
-    this.filteredCities$ = this.cityService.getAllCities().pipe()
-    this.searchResult$ = combineLatest([
-      this.filteredCities$,
-      this.searchValue$,
-    ]).pipe(
-      map(([cities, searchValue]) => {
-        return cities.filter((city) => {
-          if (searchValue) {
-            return city.name.toLowerCase().includes(searchValue.toLowerCase())
-          } else {
-            return city
-          }
-        })
+  searchResult$: Observable<Array<CityInterface>> = combineLatest([
+    this.searchValue$,
+    this.cityService.getAllCities(),
+  ]).pipe(
+    map(([searchValue, cities]) => {
+      return cities.filter((city) => {
+        return searchValue
+          ? city.name.toLowerCase().includes(searchValue.toLowerCase())
+          : city
       })
-    )
-  }
+    })
+  )
+
+  constructor(private cityService: CityService, private router: Router) {}
 
   resetSearch() {
     this.searchValue.setValue('')
